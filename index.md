@@ -11,6 +11,7 @@
 
 ### Research interest
 - Deep learning, especially nlp field
+- Drug discovery, especially graph field
 - Metabolomics analysis, especially mass spectrometric algorithms
 
 ### Publications
