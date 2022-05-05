@@ -5,14 +5,15 @@
 - Gender: Female
 
 ### Education Experience
-- PhD, 2018-2023, Shanghai jiao tong university, Shanghai, China
-- Visiting student, 2021-2021, Tsinghua University, Beijing, China
-- Undergraduate, 2014-2018, Dongbei University of Finance & Economics, Dalian, China
+- PhD, school of biomedical engineering (*2018-2023*), Shanghai Jiao Tong University, Shanghai, China
+- Visiting student, machine learning and computational biology group (*2021-2021*), Tsinghua University, Beijing, China
+- Undergraduate, school of management science and engineering (*2014-2018*), Dongbei University of Finance & Economics, Dalian, China
 
 ### Research interest
-- Deep learning, especially nlp field
-- Drug discovery, especially graph field
+AI-assisted medical health:
+- Drug discovery, especially graph and nlp field
 - Metabolomics analysis, especially mass spectrometric algorithms
+- Medical image segmentation
 
 ### Publications
 1. **M. Zhang**, L. Huang, J. Yang, W. Xu, H. Su, J. Cao, Z. Li, J. Lou, Q. Wang, J. Pu, and K. Qian. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. *Advanced Science* 2021, 8, 2101333.(**First author, SCI Q1, IF 16.80**)
