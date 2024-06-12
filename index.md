@@ -1,8 +1,7 @@
 # Welcome to Mengji's personal website
 ### About ME
-- Name: Zhang Mengji
-- Age: 25
-- Gender: Female
+- Name: Mengji Zhang
+- Affiliation: Postdoc Associate at Yale University
 
 ### Education Experience
 - PhD, school of biomedical engineering (*2018-2023*), Shanghai Jiao Tong University, Shanghai, China
@@ -11,9 +10,10 @@
 
 ### Research interest
 AI-assisted medical health:
-- Drug discovery, especially graph and nlp field
-- Metabolomics analysis, especially mass spectrometric algorithms
-- Medical image segmentation
+- Computational neuroscience, the relation between behavior and neural activities
+- Computational omics, transcriptomics and metabolomics
+- Computational molecular structures
+
 
 ### Publications
 1. **M. Zhang**, L. Huang, J. Yang, W. Xu, H. Su, J. Cao, Z. Li, J. Lou, Q. Wang, J. Pu, and K. Qian. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. *Advanced Science* 2021, 8, 2101333.(**First author, SCI Q1, IF 16.80**)
