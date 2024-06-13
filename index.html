@@ -5,6 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Personal Academic Website</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        /* Additional styles for better responsiveness */
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        nav ul li {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            section hgroup h2 {
+                font-size: 1.5rem;
+            }
+
+            section hgroup h3 {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .grid ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .grid ul li {
+            margin-bottom: 1.5rem;
+        }
+
+        figure {
+            max-width: 100%;
+            text-align: center;
+        }
+
+        figure img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .container {
+            padding: 2rem 1rem;
+        }
+
+        /* Gallery section */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <nav class="container-fluid">
@@ -25,15 +101,16 @@
                     <h2 id="about">About Me</h2>
                     <h3>Introduction</h3>
                 </hgroup>
-                <p>Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology.</p>
-<!--                 <figure>
+                <p>Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology. If you are interested in collaboration with me, please contact mengji.zhang0809@gmail.com.</p>
+                <!-- Uncomment and update the image path if you have an image -->
+                <!-- <figure>
                     <img src="path_to_your_image.jpg" alt="Your Image" />
                     <figcaption><a href="path_to_your_image.jpg" target="_blank">View Image</a></figcaption>
                 </figure> -->
                 <h3>Background</h3>
-                <p>I received my PhD in Biomedical Engieering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am doing something with neuroscience.</p>
+                <p>I received my PhD in Biomedical Engineering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am working at decoding the interaction between behaviors and neural activities in the brain with deep learning.</p>
                 <h3>Interests</h3>
-                <p>My interests include playing the Nintendo games and watching Japanese animations.</p>
+                <p>My interests include playing Nintendo games and watching Japanese animations.</p>
             </section>
             <section>
                 <hgroup>
@@ -44,19 +121,19 @@
                     <li>
                         <figure>
                             <img src="path_to_your_research_image_1.jpg" alt="Research Project 1" />
-                            <figcaption><strong>Research Project 1</strong>: Brief description of the research project. <a href="https://example.com/link_to_research_1" target="_blank">Learn more</a></figcaption>
+                            <figcaption><strong>Integrating the large-scale transcriptome datasets by deep learning. </strong>: Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data. The innovation of our approach lies in automatic learning of the corresponding denoising strategies to adapt to different situations. The data-driven strategies are flexible and highly attuned to the transcriptomic data that requires denoising, yielding significant improvement in reducing undesirable variation originating from batches, sequencing platforms, and bio-samples with varied purity beyond manually designed schemes. Comprehensive evaluations across multiple batches, different RNA measurement technologies and heterogeneous bio-samples demonstrate that DeepAdapter can robustly correct diverse undesirable variations and accurately preserve biological signals. Our findings indicate that DeepAdapter can act as a versatile tool for the comprehensive denoising of the large and heterogeneous transcriptome across a wide variety of application scenarios. <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a></figcaption>
                         </figure>
                     </li>
                     <li>
                         <figure>
                             <img src="path_to_your_research_image_2.jpg" alt="Research Project 2" />
-                            <figcaption><strong>Research Project 2</strong>: Brief description of the research project. <a href="https://example.com/link_to_research_2" target="_blank">Learn more</a></figcaption>
+                            <figcaption><strong>Decoding the relationship between olfactory perception and molecular strcuture. </strong>: While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information encoded by the combination of odorants remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures. Mol-PECO updates the learned atom embedding by directional graph convolutional networks (GCN), which model the Laplacian eigenfunctions as positional encoding, and Coulomb matrix, which encodes atomic coordinates and charges. With a comprehensive dataset of 8,503 molecules, Mol-PECO directly achieves an area-under-the-receiver-operating-characteristic (AUROC) of 0.813 in 118 odor descriptors, superior to the machine learning of molecular fingerprints (AUROC of 0.761) and GCN of adjacency matrix (AUROC of 0.678). The learned embeddings by Mol-PECO also capture a meaningful odor space with global clustering of descriptors and local retrieval of similar odorants. Our work may promote the understanding and decoding of the olfactory sense and mechanisms. <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a></figcaption>
                         </figure>
                     </li>
                     <li>
                         <figure>
                             <img src="path_to_your_research_image_3.jpg" alt="Research Project 3" />
-                            <figcaption><strong>Research Project 3</strong>: Brief description of the research project. <a href="https://example.com/link_to_research_3" target="_blank">Learn more</a></figcaption>
+                            <figcaption><strong>Stabilizing the metabolic profiling</strong>: Although mass spectrometry (MS) of metabolites has the potential to provide real-time monitoring of patient status for diagnostic purposes, the diagnostic application of MS is limited due to sample treatment and data quality/reproducibility. Here, the generation of a deep stabilizer for ultra-fast, label-free MS detection and the application of this method for serum metabolic diagnosis of coronary heart disease (CHD) are reported. Nanoparticle-assisted laser desorption/ionization-MS is used to achieve direct metabolic analysis of trace unprocessed serum in seconds. Furthermore, a deep stabilizer is constructed to map native MS results to high-quality results obtained by established methods. Finally, using the newly developed protocol and diagnosis variation characteristic surface to characterize sensitivity/specificity and variation, CHD is diagnosed with advanced accuracy in a high-throughput/speed manner. This work advances design of metabolic analysis tools for disease detection as it provides a direct label-free, ultra-fast, and stabilized platform for future protocol development in clinics. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a></figcaption>
                         </figure>
                     </li>
                 </ul>
@@ -66,15 +143,60 @@
                     <h2 id="publications">Publications</h2>
                     <h3>Recent Works</h3>
                 </hgroup>
-                <ul>
+                <!-- <ul>
                     <li><strong>Title of Publication 1</strong>, Journal Name, Year. <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
                     <li><strong>Title of Publication 2</strong>, Journal Name, Year. <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
                     <li><strong>Title of Publication 3</strong>, Journal Name, Year. <a href="https://example.com/link_to_publication_3" target="_blank">Read more</a></li>
-                </ul>
-            </section>
+                </ul> -->
 
+                Sure, here's the updated HTML code with "Mengji Zhang" bolded and others in normal font:
+
+                html
+                Copy code
+                <section>
+                    <hgroup>
+                        <h2 id="publications">Publications</h2>
+                        <h3>Recent Works</h3>
+                    </hgroup>
+                    <ol reversed>
+                        <li><strong>Mengji Zhang</strong> et al. DeepAdapter: a universal framework to remove the undesirable variations from large and heterogeneous transcriptome. In submission (First author, preprint in bioRxiv). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
+                        <li><strong>Mengji Zhang</strong>* et al. Mol-PECO: a deep learning model to predict human olfactory perception from molecular structures. npj Systems Biology and Applications, in review (First author, IF 4.3). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
+                        <li><strong>Mengji Zhang</strong> et al. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. Advanced Science 2021, 8, 2101333. (First author, IF 16.80). <a href="https://example.com/link_to_publication_3" target="_blank">Read more</a></li>
+                        <li>Weikang Shu#, <strong>Mengji Zhang</strong># et al. An Alloy Platform of Dual-Fingerprints for High-Performance Stroke Screening. Advanced Functional Materials 2023, 2210267. (Co-first author, IF 18.81). <a href="https://example.com/link_to_publication_4" target="_blank">Read more</a></li>
+                        <li>Lin Wang#, <strong>Mengji Zhang</strong>#, Xufeng Pan#, Mingna Zhao# et al. Integrative Serum Metabolic Fingerprints Based Multi-Modal Platforms for Lung Adenocarcinoma Early Detection and Pulmonary Nodule Classification. Advanced Science 2022, 2203786. (Co-first author, IF 16.80). <a href="https://example.com/link_to_publication_5" target="_blank">Read more</a></li>
+                        <li>Jing Cao#, Yan Xiao#, <strong>Mengji Zhang</strong># et al. Deep learning of dual plasma fingerprints for high-performance infection classification. Small 2023, 202206349. (Co-first author, IF 15.15). <a href="https://example.com/link_to_publication_6" target="_blank">Read more</a></li>
+                        <li>Xia Yin#, Jing Yang#, <strong>Mengji Zhang</strong>#, Xinyao Wang# et al. Serum Metabolic Fingerprints on Bowl-Shaped Submicroreactor Chip for Chemotherapy Monitoring. ACS Nano 2022. (Co-first author, IF 15.88). <a href="https://example.com/link_to_publication_7" target="_blank">Read more</a></li>
+                        <li><strong>Mengji Zhang</strong># et al. Plasma metabolic signature of cardiovascular and cerebrovascular diseases from a large cohort study. Journal of Shanghai Jiao Tong University (Medical Science) 2022, 2, 259. <a href="https://example.com/link_to_publication_8" target="_blank">Read more</a></li>
+                        <li><strong>Mengji Zhang</strong> et al. Predicting Stock Trends Based on News Events. Data Analysis and Knowledge Discovery, 2019, 3, 11. (First author). <a href="https://example.com/link_to_publication_9" target="_blank">Read more</a></li>
+                        <li>Shunxiang Li … <strong>Mengji Zhang</strong> et al. Serum Metabolic Fingerprints Characterize Systemic Lupus Erythematosus. Advanced Science 2023, 2304610. <a href="https://example.com/link_to_publication_10" target="_blank">Read more</a></li>
+                        <li>Haiyang Su … <strong>Mengji Zhang</strong> et al. Plasmonic alloys reveal distinct metabolic phenotype of early gastric cancer. Advanced Materials 2021, 33, 2007978. <a href="https://example.com/link_to_publication_11" target="_blank">Read more</a></li>
+                        <li>Jing Yang … <strong>Mengji Zhang</strong> et al. Urine Metabolic Fingerprints Encode Subtypes of Kidney Diseases. Angewandte Chemie-International Edition, 2020, 59, 1703. <a href="https://example.com/link_to_publication_12" target="_blank">Read more</a></li>
+                        <li>Jing Cao … <strong>Mengji Zhang</strong> et al. Metabolic fingerprinting on synthetic alloys for medulloblastoma diagnosis and radio therapy evaluation. Advanced Materials 2020, 32, 2000906. <a href="https://example.com/link_to_publication_13" target="_blank">Read more</a></li>
+                        <li>Xinyu Wang … <strong>Mengji Zhang</strong> et al. An Effective Optimization Algorithm for Application Mapping in Network-on-Chip Designs. IEEE Transactions on Industrial Electronics, 2019, 67, 5798. (IF 8.14). <a href="https://example.com/link_to_publication_14" target="_blank">Read more</a></li>
+                    </ol>
+            </section>
         </div>
     </main>
+    <section id="gallery" aria-label="Lab Picture Gallery">
+        <div class="container">
+            <h2>Lab Picture Gallery</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="path_to_your_lab_image_1.jpg" alt="Lab Image 1">
+                    <figcaption>Lab Image 1 Description</figcaption>
+                </figure>
+                <figure>
+                    <img src="path_to_your_lab_image_2.jpg" alt="Lab Image 2">
+                    <figcaption>Lab Image 2 Description</figcaption>
+                </figure>
+                <figure>
+                    <img src="path_to_your_lab_image_3.jpg" alt="Lab Image 3">
+                    <figcaption>Lab Image 3 Description</figcaption>
+                </figure>
+                <!-- Add more images as needed -->
+            </div>
+        </div>
+    </section>
     <section aria-label="Subscribe example">
         <div class="container">
             <article>
@@ -91,7 +213,7 @@
         </div>
     </section>
     <footer class="container">
-        <small><a href="#about">About Me</a> • <a href="#research">Research</a> • <a href="#publications">Publications</a> • <a href="#highlighted-research">Highlighted Research</a></small>
+        <small><a href="#about">About Me</a> • <a href="#research">Research</a> • <a href="#publications">Publications</a> • <a href="#highlighted-research">Highlighted Research</a> • <a href="#gallery">Gallery</a></small>
     </footer>
 </body>
 </html>
