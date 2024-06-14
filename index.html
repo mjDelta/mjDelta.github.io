@@ -71,6 +71,43 @@
             display: grid;
             gap: 1rem;
         }
+
+        /* Image slider styling */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slides img {
+            width: 100%;
+            height: 300px; /* Set a fixed height for consistent image size */
+            object-fit: cover; /* Ensure images cover the area without distortion */
+            display: block;
+        }
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            padding: 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -107,26 +144,81 @@
                 <h2 id="highlighted-research">Highlighted Research</h2>
                 <h3>Key Projects</h3>
             </hgroup>
-            <ul>
-                <li>
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepadapter.png?raw=true" alt="Research Project 1" />
-                        <figcaption><strong>Integrating the large-scale transcriptome datasets by deep learning. </strong>: Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data.  <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a></figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/molpeco.png?raw=true" alt="Research Project 2" />
-                        <figcaption><strong>Decoding the relationship between olfactory perception and molecular strcuture. </strong>: While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information encoded by the combination of odorants remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.  <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a></figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepstabilizer.png?raw=true" alt="Research Project 3" />
-                        <figcaption><strong>Stabilizing the metabolic profiling</strong>: Although mass spectrometry (MS) of metabolites has the potential to provide real-time monitoring of patient status for diagnostic purposes, the diagnostic application of MS is limited due to sample treatment and data quality/reproducibility. Here, the generation of a deep stabilizer for ultra-fast, label-free MS detection and the application of this method for serum metabolic diagnosis of coronary heart disease (CHD) are reported. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a></figcaption>
-                    </figure>
-                </li>
-            </ul>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <hgroup>
+                            <h3>Integrating the large-scale transcriptome datasets by deep learning</h3>
+                        </hgroup>
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepadapter.png?raw=true" alt="Research Project 1">
+                            <figcaption>
+                                Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data.
+                                <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <hgroup>
+                            <h3>Decoding the relationship between olfactory perception and molecular structure</h3>
+                        </hgroup>
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/molpeco.png?raw=true" alt="Research Project 2">
+                            <figcaption>
+                                While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information encoded by the combination of odorants remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.
+                                <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <hgroup>
+                            <h3>Stabilizing the metabolic profiling</h3>
+                        </hgroup>
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepstabilizer.png?raw=true" alt="Research Project 3">
+                            <figcaption>
+                                Although mass spectrometry (MS) of metabolites has the potential to provide real-time monitoring of patient status for diagnostic purposes, the diagnostic application of MS is limited due to sample treatment and data quality/reproducibility. Here, the generation of a deep stabilizer for ultra-fast, label-free MS detection and the application of this method for serum metabolic diagnosis of coronary heart disease (CHD) are reported.
+                                <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button id="prev">&laquo; Prev</button>
+                    <button id="next">Next &raquo;</button>
+                </div>
+            </div>
+        </section>
+        <section id="gallery" aria-label="Lab Picture Gallery">
+            <hgroup>
+                <h2>Lab Picture Gallery</h2>
+            </hgroup>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/yale.jpg?raw=true" alt="Lab Image 1">
+                            <figcaption>@Yale University</figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/sjtu.jpg?raw=true" alt="Lab Image 2">
+                            <figcaption>@Shanghai Jiao Tong University</figcaption>
+                        </figure>
+                    </div>
+                    <div class="slide">
+                        <figure>
+                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/utokyo.jpg?raw=true" alt="Lab Image 3">
+                            <figcaption>@Tokyo University</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button id="prev-gallery">&laquo; Prev</button>
+                    <button id="next-gallery">Next &raquo;</button>
+                </div>
+            </div>
         </section>
         <section>
             <hgroup>
@@ -151,27 +243,6 @@
             </ol>
         </section>
 
-        <section id="gallery" aria-label="Lab Picture Gallery">
-            <div class="container">
-                <h2>Lab Picture Gallery</h2>
-                <div class="gallery">
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/yale.jpg?raw=true" alt="Lab Image 1">
-                        <figcaption>@Yale University</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/sjtu.jpg?raw=true" alt="Lab Image 2">
-                        <figcaption>@Shanghai Jiao Tong University</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/utokyo.jpg?raw=true" alt="Lab Image 3">
-                        <figcaption>@Tokyo University</figcaption>
-                    </figure>
-                    <!-- Add more images as needed -->
-                </div>
-            </div>
-        </section>
-        
         <section>
             <hgroup>
                 <h2 id="contact">Contact Me</h2>
@@ -191,5 +262,39 @@
     <footer class="container-fluid">
         <p>&copy; 2024 Mengji Zhang. All rights reserved.</p>
     </footer>
+    <script>
+        const slides = document.querySelectorAll('.slides');
+        const prevButtons = document.querySelectorAll('[id^="prev"]');
+        const nextButtons = document.querySelectorAll('[id^="next"]');
+        
+        prevButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const slide = slides[index];
+                const totalSlides = slide.children.length;
+                let currentIndex = Array.from(slide.children).findIndex(child => child.style.transform.includes('-100%')) + 1;
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalSlides - 1;
+                showSlide(slide, currentIndex);
+            });
+        });
+
+        nextButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const slide = slides[index];
+                const totalSlides = slide.children.length;
+                let currentIndex = Array.from(slide.children).findIndex(child => child.style.transform.includes('-100%')) + 1;
+                currentIndex = (currentIndex < totalSlides - 1) ? currentIndex + 1 : 0;
+                showSlide(slide, currentIndex);
+            });
+        });
+
+        function showSlide(slide, index) {
+            const slidesWidth = slide.clientWidth;
+            slide.style.transform = `translateX(-${index * slidesWidth}px)`;
+        }
+
+        window.addEventListener('resize', () => {
+            slides.forEach(slide => showSlide(slide, 0));
+        });
+    </script>
 </body>
 </html>
