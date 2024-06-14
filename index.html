@@ -100,6 +100,7 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            pointer-events: none; /* Allow clicks to pass through to the images */
         }
         .slider-nav button {
             background-color: rgba(0, 0, 0, 0.5);
@@ -107,6 +108,14 @@
             color: white;
             padding: 1rem;
             cursor: pointer;
+            pointer-events: all; /* Allow clicks on the buttons */
+            margin: 0 1rem; /* Add margin to push buttons outside the image area */
+        }
+        .slider-nav button#prev {
+            left: -50px; /* Move the Prev button further outside the image */
+        }
+        .slider-nav button#next {
+            right: -50px; /* Move the Next button further outside the image */
         }
     </style>
 </head>
@@ -136,8 +145,8 @@
             </figure> -->
             <h3>Background</h3>
             <p>I received my PhD in Biomedical Engineering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am working at decoding the interaction between behaviors and neural activities in the brain with deep learning.</p>
-            <h3>Interests</h3>
-            <p>My interests include playing Nintendo games and watching Japanese animations.</p>
+<!--             <h3>Interests</h3>
+            <p>My interests include playing Nintendo games and watching Japanese animations.</p> -->
         </section>
         <section>
             <hgroup>
@@ -210,14 +219,14 @@
                 <li>Jing Yang … <strong>Mengji Zhang</strong> et al. Urine Metabolic Fingerprints Encode Subtypes of Kidney Diseases. Angewandte Chemie-International Edition, 2020, 59, 1703. <a href="https://example.com/link_to_publication_12" target="_blank">Read more</a></li>
                 <li>Jing Cao … <strong>Mengji Zhang</strong> et al. Metabolic fingerprinting on synthetic alloys for medulloblastoma diagnosis and radio therapy evaluation. Advanced Materials 2020, 32, 2000906. <a href="https://example.com/link_to_publication_13" target="_blank">Read more</a></li>
                 <li>Xinyu Wang … <strong>Mengji Zhang</strong> et al. An Effective Optimization Algorithm for Application Mapping in Network-on-Chip Designs. IEEE Transactions on Industrial Electronics, 2019, 67, 5798. (IF 8.14). <a href="https://example.com/link_to_publication_14" target="_blank">Read more</a></li>
-            </ol>
-        </section>
+                </ol>
+                </section>
 
-        <section id="gallery" aria-label="Lab Picture Gallery">
-            <hgroup>
+                <section id="gallery" aria-label="Lab Picture Gallery">
+                <hgroup>
                 <h2>Lab Picture Gallery</h2>
-            </hgroup>
-            <div class="slider">
+                </hgroup>
+                <div class="slider">
                 <div class="slides">
                     <div class="slide">
                         <figure>
@@ -242,15 +251,15 @@
                     <button id="prev-gallery">&laquo; Prev</button>
                     <button id="next-gallery">Next &raquo;</button>
                 </div>
-            </div>
-        </section>
-        
-        <section>
-            <hgroup>
+                </div>
+                </section>
+
+                <section>
+                <hgroup>
                 <h2 id="contact">Contact Me</h2>
                 <h3>Get in Touch</h3>
-            </hgroup>
-            <form action="mailto:mengji.zhang0809@gmail.com" method="post" enctype="text/plain">
+                </hgroup>
+                <form action="mailto:mengji.zhang0809@gmail.com" method="post" enctype="text/plain">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
@@ -258,16 +267,16 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
                 <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
-    <footer class="container-fluid">
-        <p>&copy; 2024 Mengji Zhang. All rights reserved.</p>
-    </footer>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sliders = document.querySelectorAll('.slider');
-            sliders.forEach(slider => {
+                </form>
+                </section>
+                </main>
+                <footer class="container-fluid">
+                <p>&copy; 2024 Mengji Zhang. All rights reserved.</p>
+                </footer>
+                <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                const sliders = document.querySelectorAll('.slider');
+                sliders.forEach(slider => {
                 const slides = slider.querySelector('.slides');
                 const prevButton = slider.querySelector('.slider-nav button[id^="prev"]');
                 const nextButton = slider.querySelector('.slider-nav button[id^="next"]');
@@ -292,8 +301,9 @@
 
                 window.addEventListener('resize', () => showSlide(currentIndex));
                 showSlide(currentIndex);
-            });
-        });
-    </script>
-</body>
-</html>
+                });
+                });
+                </script>
+                </body>
+                </html>
+
