@@ -26,13 +26,16 @@
         }
 
         .container section hgroup h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .container section hgroup h3 {
             font-size: 1.5rem;
         }
 
+        .container section hgroup h4 {
+            font-size: 1.3rem;
+        }
         .container ul {
             list-style-type: none;
             padding: 0;
@@ -95,7 +98,7 @@
         }
         .slider-nav {
             position: absolute;
-            top: 60%;
+            top: 59%;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -112,10 +115,10 @@
             margin: 0 5rem; /* Add margin to push buttons outside the image area */
         }
         .slider-nav button#prev {
-            left: -50px; /* Move the Prev button further outside the image */
+            left: -20px; /* Move the Prev button further outside the image */
         }
         .slider-nav button#next {
-            right: -50px; /* Move the Next button further outside the image */
+            right: -20px; /* Move the Next button further outside the image */
         }
     </style>
 </head>
@@ -135,7 +138,7 @@
         <section>
             <hgroup>
                 <h2 id="about">About Me</h2>
-                <h3>Introduction</h3>
+                <!--<h3>Introduction</h3>-->
             </hgroup>
             <p style="color: black">Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology. If you are interested in collaboration with me, please contact mengji.zhang0809@gmail.com.</p>
             <!-- Uncomment and update the image path if you have an image -->
@@ -151,37 +154,36 @@
         <section>
             <hgroup>
                 <h2 id="highlighted-research">Highlighted Research</h2>
-                <h3>Key Projects</h3>
+                <!--<h3>Key Projects</h3>-->
             </hgroup>
             <div class="slider">
                 <div class="slides">
                     <div class="slide">
                         <hgroup>
-                            <h3>Integrating the large-scale transcriptome datasets by deep learning</h3>
+                            <h4>Integrating the large-scale and heterogenous transcriptome datasets</h4>
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepadapter.png?raw=true" alt="Research Project 1">
                             <figcaption><p style="color: black">
-                                Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data.
-                                <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a></p>
+                                Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data. The innovation of our approach lies in automatic learning of the corresponding denoising strategies to adapt to different situations.<a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a></p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="slide">
                         <hgroup>
-                            <h3>Decoding the relationship between olfactory perception and molecular structure</h3>
+                            <h4>Decoding the relationship between olfactory perception and molecular structure</h4>
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/molpeco.png?raw=true" alt="Research Project 2">
                             <figcaption><p style="color: black">
-                                While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information encoded by the combination of odorants remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.
+                                While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.
                                 <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a></p>
                             </figcaption>
                         </figure>
                     </div>
                     <div class="slide">
                         <hgroup>
-                            <h3>Stabilizing the metabolic profiling</h3>
+                            <h4>Stabilizing the metabolic profilings</h4>
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepstabilizer.png?raw=true" alt="Research Project 3">
@@ -202,7 +204,7 @@
         <section>
             <hgroup>
                 <h2 id="publications">Publications</h2>
-                <h3>Recent Works</h3>
+                <!--<h3>Recent Works</h3>-->
             </hgroup>
             <ol reversed style="color: black">
                 <li><strong>Mengji Zhang</strong> et al. DeepAdapter: a universal framework to remove the undesirable variations from large and heterogeneous transcriptome. In submission (First author, preprint in bioRxiv). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
