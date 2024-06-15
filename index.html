@@ -95,7 +95,7 @@
         }
         .slider-nav {
             position: absolute;
-            top: 50%;
+            top: 60%;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -103,13 +103,13 @@
             pointer-events: none; /* Allow clicks to pass through to the images */
         }
         .slider-nav button {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.05);
             border: none;
             color: white;
             padding: 1rem;
             cursor: pointer;
             pointer-events: all; /* Allow clicks on the buttons */
-            margin: 0 1rem; /* Add margin to push buttons outside the image area */
+            margin: 0 5rem; /* Add margin to push buttons outside the image area */
         }
         .slider-nav button#prev {
             left: -50px; /* Move the Prev button further outside the image */
@@ -137,14 +137,14 @@
                 <h2 id="about">About Me</h2>
                 <h3>Introduction</h3>
             </hgroup>
-            <p>Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology. If you are interested in collaboration with me, please contact mengji.zhang0809@gmail.com.</p>
+            <p style="color: black">Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology. If you are interested in collaboration with me, please contact mengji.zhang0809@gmail.com.</p>
             <!-- Uncomment and update the image path if you have an image -->
             <!-- <figure>
                 <img src="path_to_your_image.jpg" alt="Your Image" />
                 <figcaption><a href="path_to_your_image.jpg" target="_blank">View Image</a></figcaption>
             </figure> -->
-            <h3>Background</h3>
-            <p>I received my PhD in Biomedical Engineering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am working at decoding the interaction between behaviors and neural activities in the brain with deep learning.</p>
+            <!--<h3>Background</h3>-->
+            <p style="color: black">I received my PhD in Biomedical Engineering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am working at decoding the interaction between behaviors and neural activities in the brain with deep learning.</p>
 <!--             <h3>Interests</h3>
             <p>My interests include playing Nintendo games and watching Japanese animations.</p> -->
         </section>
@@ -161,9 +161,9 @@
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepadapter.png?raw=true" alt="Research Project 1">
-                            <figcaption>
+                            <figcaption><p style="color: black">
                                 Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data.
-                                <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a>
+                                <a href="https://www.biorxiv.org/content/10.1101/2024.02.04.578839v1" target="_blank">Learn more</a></p>
                             </figcaption>
                         </figure>
                     </div>
@@ -173,9 +173,9 @@
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/molpeco.png?raw=true" alt="Research Project 2">
-                            <figcaption>
+                            <figcaption><p style="color: black">
                                 While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information encoded by the combination of odorants remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.
-                                <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a>
+                                <a href="https://arxiv.org/abs/2305.12424" target="_blank">Learn more</a></p>
                             </figcaption>
                         </figure>
                     </div>
@@ -185,9 +185,9 @@
                         </hgroup>
                         <figure>
                             <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepstabilizer.png?raw=true" alt="Research Project 3">
-                            <figcaption>
+                            <figcaption><p style="color: black">
                                 Although mass spectrometry (MS) of metabolites has the potential to provide real-time monitoring of patient status for diagnostic purposes, the diagnostic application of MS is limited due to sample treatment and data quality/reproducibility. Here, the generation of a deep stabilizer for ultra-fast, label-free MS detection and the application of this method for serum metabolic diagnosis of coronary heart disease (CHD) are reported.
-                                <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a>
+                                <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a></p>
                             </figcaption>
                         </figure>
                     </div>
@@ -204,7 +204,7 @@
                 <h2 id="publications">Publications</h2>
                 <h3>Recent Works</h3>
             </hgroup>
-            <ol reversed>
+            <ol reversed style="color: black">
                 <li><strong>Mengji Zhang</strong> et al. DeepAdapter: a universal framework to remove the undesirable variations from large and heterogeneous transcriptome. In submission (First author, preprint in bioRxiv). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
                 <li><strong>Mengji Zhang</strong>* et al. Mol-PECO: a deep learning model to predict human olfactory perception from molecular structures. npj Systems Biology and Applications, in review (First author, IF 4.3). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
                 <li><strong>Mengji Zhang</strong> et al. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. Advanced Science 2021, 8, 2101333. (First author, IF 16.80). <a href="https://example.com/link_to_publication_3" target="_blank">Read more</a></li>
@@ -306,4 +306,3 @@
                 </script>
                 </body>
                 </html>
-
