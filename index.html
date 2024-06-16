@@ -98,7 +98,7 @@
         }
         .slider-nav {
             position: absolute;
-            top: 59%;
+            top: 90%;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -112,7 +112,7 @@
             padding: 1rem;
             cursor: pointer;
             pointer-events: all; /* Allow clicks on the buttons */
-            margin: 0 5rem; /* Add margin to push buttons outside the image area */
+            margin: 0 3rem; /* Add margin to push buttons outside the image area */
         }
         .slider-nav button#prev {
             left: -20px; /* Move the Prev button further outside the image */
@@ -120,6 +120,26 @@
         .slider-nav button#next {
             right: -20px; /* Move the Next button further outside the image */
         }
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    color: black;
+    background-color: #f0f0f0; /* Change this to the color you want */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #d3d3d3; /* Change this to the hover color you want */
+}
+
     </style>
 </head>
 <body>
@@ -127,34 +147,28 @@
         <ul>
             <li><strong>My Academic Site</strong></li>
         </ul>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#highlighted-research">Highlighted Research</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <!--<li><a href="#contact" role="button">Contact</a></li>-->
-        </ul>
+<ul>
+    <li><a href="#about" class="button">About Me</a></li>
+    <li><a href="#highlighted-research" class="button">Highlighted Research</a></li>
+    <li><a href="#publications" class="button">Publications</a></li>
+</ul>
+
     </nav>
     <main class="container">
         <section>
             <hgroup>
                 <h2 id="about">About Me</h2>
-                <!--<h3>Introduction</h3>-->
             </hgroup>
             <p style="color: black">Hello! I am Mengji Zhang, a Postdoc Associate at Yale University. My research focuses on computational biology. If you are interested in collaboration with me, please contact mengji.zhang0809@gmail.com.</p>
-            <!-- Uncomment and update the image path if you have an image -->
             <!-- <figure>
                 <img src="path_to_your_image.jpg" alt="Your Image" />
                 <figcaption><a href="path_to_your_image.jpg" target="_blank">View Image</a></figcaption>
             </figure> -->
-            <!--<h3>Background</h3>-->
             <p style="color: black">I received my PhD in Biomedical Engineering from Shanghai Jiao Tong University. My work involves computational omics and molecular structure decoding. Now I am working at decoding the interaction between behaviors and neural activities in the brain with deep learning.</p>
-<!--             <h3>Interests</h3>
-            <p>My interests include playing Nintendo games and watching Japanese animations.</p> -->
         </section>
         <section>
             <hgroup>
                 <h2 id="highlighted-research">Highlighted Research</h2>
-                <!--<h3>Key Projects</h3>-->
             </hgroup>
             <div class="slider">
                 <div class="slides">
@@ -204,11 +218,10 @@
         <section>
             <hgroup>
                 <h2 id="publications">Publications</h2>
-                <!--<h3>Recent Works</h3>-->
             </hgroup>
             <ol reversed style="color: black">
-                <li><strong>Mengji Zhang</strong> et al. DeepAdapter: a universal framework to remove the undesirable variations from large and heterogeneous transcriptome. In submission (First author, preprint in bioRxiv). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
-                <li><strong>Mengji Zhang</strong>* et al. Mol-PECO: a deep learning model to predict human olfactory perception from molecular structures. npj Systems Biology and Applications, in review (First author, IF 4.3). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
+                <li><strong>Mengji Zhang</strong> et al. A self-adaptive and versatile tool for eliminating multiple undesirable variations from transcriptome. In submission (First author, preprint in bioRxiv). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
+                <li><strong>Mengji Zhang</strong>* et al. Mol-PECO: a deep learning model to predict human olfactory perception from molecular structures. npj Systems Biology and Applications, accepted (First author, IF 4.3). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
                 <li><strong>Mengji Zhang</strong> et al. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. Advanced Science 2021, 8, 2101333. (First author, IF 16.80). <a href="https://example.com/link_to_publication_3" target="_blank">Read more</a></li>
                 <li>Weikang Shu#, <strong>Mengji Zhang</strong># et al. An Alloy Platform of Dual-Fingerprints for High-Performance Stroke Screening. Advanced Functional Materials 2023, 2210267. (Co-first author, IF 18.81). <a href="https://example.com/link_to_publication_4" target="_blank">Read more</a></li>
                 <li>Lin Wang#, <strong>Mengji Zhang</strong>#, Xufeng Pan#, Mingna Zhao# et al. Integrative Serum Metabolic Fingerprints Based Multi-Modal Platforms for Lung Adenocarcinoma Early Detection and Pulmonary Nodule Classification. Advanced Science 2022, 2203786. (Co-first author, IF 16.80). <a href="https://example.com/link_to_publication_5" target="_blank">Read more</a></li>
@@ -216,6 +229,7 @@
                 <li>Xia Yin#, Jing Yang#, <strong>Mengji Zhang</strong>#, Xinyao Wang# et al. Serum Metabolic Fingerprints on Bowl-Shaped Submicroreactor Chip for Chemotherapy Monitoring. ACS Nano 2022. (Co-first author, IF 15.88). <a href="https://example.com/link_to_publication_7" target="_blank">Read more</a></li>
                 <li><strong>Mengji Zhang</strong># et al. Plasma metabolic signature of cardiovascular and cerebrovascular diseases from a large cohort study. Journal of Shanghai Jiao Tong University (Medical Science) 2022, 2, 259. <a href="https://example.com/link_to_publication_8" target="_blank">Read more</a></li>
                 <li><strong>Mengji Zhang</strong> et al. Predicting Stock Trends Based on News Events. Data Analysis and Knowledge Discovery, 2019, 3, 11. (First author). <a href="https://example.com/link_to_publication_9" target="_blank">Read more</a></li>
+<li>Haiyang Su … <strong>Mengji Zhang</strong> et al. Fast Label‐Free Metabolic Profile Recognition Identifies Phenylketonuria and Subtypes. Advanced Science 2024, 2305701. <a href="https://example.com/link_to_publication_10" target="_blank">Read more</a></li>
                 <li>Shunxiang Li … <strong>Mengji Zhang</strong> et al. Serum Metabolic Fingerprints Characterize Systemic Lupus Erythematosus. Advanced Science 2023, 2304610. <a href="https://example.com/link_to_publication_10" target="_blank">Read more</a></li>
                 <li>Haiyang Su … <strong>Mengji Zhang</strong> et al. Plasmonic alloys reveal distinct metabolic phenotype of early gastric cancer. Advanced Materials 2021, 33, 2007978. <a href="https://example.com/link_to_publication_11" target="_blank">Read more</a></li>
                 <li>Jing Yang … <strong>Mengji Zhang</strong> et al. Urine Metabolic Fingerprints Encode Subtypes of Kidney Diseases. Angewandte Chemie-International Edition, 2020, 59, 1703. <a href="https://example.com/link_to_publication_12" target="_blank">Read more</a></li>
@@ -256,21 +270,6 @@
                 </div>
                 </section>
 
-                <!--<section>
-                <hgroup>
-                <h2 id="contact">Contact Me</h2>
-                <h3>Get in Touch</h3>
-                </hgroup>
-                <form action="mailto:mengji.zhang0809@gmail.com" method="post" enctype="text/plain">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-                <button type="submit">Send</button>
-                </form>
-                </section>-->
                 </main>
                 <footer class="container-fluid">
                 <p>&copy; 2024 Mengji Zhang. All rights reserved.</p>
