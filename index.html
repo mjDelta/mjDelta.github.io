@@ -9,7 +9,7 @@
         /* General container styling */
         .container {
             font-family: Arial, sans-serif;
-            max-width: 800px;
+            max-width: 1600px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
@@ -21,7 +21,7 @@
         h2 {
             color: #333;
             font-size: 1.8rem;
-            border-bottom: 2px solid #4CAF50;
+            border-bottom: 2px solid #607d8b;
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
@@ -51,7 +51,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            color: #4CAF50; /* Green checkmark */
+            color: #607d8b; /* Green checkmark */
             font-size: 1.2rem;
             line-height: 1.5rem;
         }
@@ -74,9 +74,14 @@
         /* Bold section titles */
         strong {
             font-size: 1.2rem;
-            color: #4CAF50;
+            color: #1a237e;
             margin-top: 20px;
             display: block;
+        }
+        
+        a {
+        	color: #1a237e;
+            font-size: 1.1rem;
         }
         
         /* Additional styles for better responsiveness */
@@ -109,14 +114,6 @@
         .container section hgroup h4 {
             font-size: 1.3rem;
         }
-        /*.container ul {*/
-        /*    list-style-type: none;*/
-        /*    padding: 0;*/
-        /*}*/
-
-        /*.container ul li {*/
-        /*    margin-bottom: 1.5rem;*/
-        /*}*/
 
         figure {
             max-width: 100%;
@@ -237,6 +234,93 @@
         // Call the function when the page loads
         window.onload = fetchVisitCount;
     </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+
+                <script>
+                    // Ensure the DOM is loaded before running the animation
+                    window.onload = function() {
+                        // Animate the <p> elements inside <section> first
+                        anime({
+                            targets: 'section p',
+                            opacity: [0, 1],
+                            easing: 'easeInOutQuad',
+                            duration: 300,
+                            delay: anime.stagger(300, {start: 0}) // Stagger delay
+                        });
+
+                        // Animate the <li> elements in the list with a slight delay to ensure it runs after <p> animation
+                        setTimeout(function() {
+                            const listItems = document.querySelectorAll('.my-list li');
+                            listItems.forEach((item, index) => {
+                                anime({
+                                    targets: item,
+                                    translateX: [100, 0],
+                                    opacity: [0, 1],
+                                    easing: 'easeOutExpo',
+                                    duration: 300,
+                                    delay: index * 300 // Stagger delay
+                                });
+                            });
+                        }, 0); // Delay the <li> animation by 500ms to let the <p> animations complete
+                    };
+                </script>
+                
+     <script>
+        const sliderImages = document.querySelectorAll('.slider .slide');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+          sliderImages.forEach((img, i) => {
+            anime({
+              targets: img,
+              opacity: (i === index) ? 1 : 0,
+              duration: 1000,
+              easing: 'easeInOutQuad'
+            });
+          });
+        }
+
+        document.getElementById('next').addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % sliderImages.length;
+          showSlide(currentIndex);
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
+          showSlide(currentIndex);
+        });
+    </script>
+    
+     <script>
+      const galleryImages = document.querySelectorAll('.slider .slide img');
+      galleryImages.forEach((image, index) => {
+        anime({
+          targets: image,
+          scale: [0, 1],
+          opacity: [0, 1],
+          easing: 'easeOutQuad',
+          duration: 1000,
+          delay: index * 500 // Stagger the animations
+        });
+      });
+    </script>
+    
+     <script>
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+          anime({
+            targets: link,
+            borderBottom: ['2px solid #607d8b', '2px solid #FF5733'],
+            duration: 400,
+            easing: 'easeInOutQuad'
+          });
+        });
+      });
+    </script>  
+    
+    
 </head>
 <body>
     <nav class="container-fluid">
@@ -257,37 +341,29 @@
             </hgroup>
             <p style="color: black">I am a Postdoc Associate at Yale University as of June 2024. I received my PhD supervised by Prof. Kun Qian in Shanghai Jiao Tong University in June, 2023. My research focuses on computational biology. My long-term research goal is to advance the understanding of biological problems with computational algorithms.</p>
            <p style="color: black">I am collaborating with Prof. Hyojung Seo from Yale University on modeling the neural dynamics to explain the relationship between nerual activities and behavior.</p>
-           
-            <!--<p style="color: black">I received my PhD supervised by Prof. Kun Qian in Shanghai Jiao Tong University with works about computational metabolomics in June, 2023. I developed the first deep-learning algorithm to stabilize the measured metabolic profiles for improved diagnostic reproducibility, together with diagnostic variational surface to measure diagnostic accuracy and variation simultaneously.</p>-->
-            <!--<p style="color: black">I collaborated with Prof. Tetsuya Kobayashi from Tokyo University on decoding olfactory perception from molecular structures. This work builds a deep graph model with atomic position encoding and Coulomb matrix to predict the molecular properties. It may promote the understanding and decoding of the olfactory sense and mechanisms.</p>-->
-            <!--<p style="color: black">I collaborated with Prof. Tian Xu and Prof. Dong Yang from Westlake University on integrating the large and heterogeneous transcriptome datasets. This work builds a deep generative model with adversarial learning and contrastive learning to remove various unwanted variations from transcriptomic studies. It robustly correct diverse undesirable variations and accurately preserve biological signals for batch, platform, purity and unknown variations. </p>-->
 
            <p style="color: black">If you are interested in collaboration with me about computational biology, please contact mengji.zhang0809@gmail.com.</p>
-            <!-- <figure>
-                <img src="path_to_your_image.jpg" alt="Your Image" />
-                <figcaption><a href="path_to_your_image.jpg" target="_blank">View Image</a></figcaption>
-            </figure> -->
         </section>
         
         <section>
             <hgroup>
-                <h2 id="research-interests"><i class="fas fa-brain" style="color: #4CAF50; margin-right: 0.5rem;"></i>Research interests</h2>
+                <h2 id="research-interests"><i class="fas fa-brain" style="color: #1a237e; margin-right: 0.5rem;"></i>Research interests</h2>
             </hgroup>
             <strong>Computational omics</strong>
-           <ul>
+           <ul class="my-list">
                <li>In computational metabolomics, I am interested in increasing the profile reproducibility and decoding the mapping space between metabolites and measured profiles.</li>
                <li>In computational transcriptomics, I am interested in removing the unwanted variations brought by batch, platform, purity, and other unknown effects.</li>        
                <li>In molecular modeling, I am interested in the quantatitive structure-property relationship.</li>   
            </ul>
             <strong>Computational neuroscience</strong>
-           <ul>
+           <ul class="my-list">
                <li>I am interested in neural dynamics between neural activities and behaviors.</li>
            </ul>
         </section>
         
         <section>
             <hgroup>
-                <h2 id="software"><i class="fas fa-cloud" style="color: #4CAF50; margin-right: 0.5rem;"></i>Software</h2>
+                <h2 id="software"><i class="fas fa-cloud" style="color: #1a237e; margin-right: 0.5rem;"></i>Software</h2>
             </hgroup>
            <p style="color: black"><b>DeepAdapter</b> is available as a PyPi package. This tool can remove unwanted variations caused by batch effects, platform differences, purity, and other unknown factors in transcriptomic studies. You can find the source code on 
         <a href="https://github.com/mjDelta/DeepAdapter" target="_blank" rel="noopener noreferrer">GitHub</a>. 
@@ -296,7 +372,7 @@
         
         <section>
             <hgroup>
-                <h2 id="highlighted-research"><i class="fas fa-certificate" style="color: #4CAF50; margin-right: 0.5rem;"></i>Highlighted Research</h2>
+                <h2 id="highlighted-research"><i class="fas fa-certificate" style="color: #1a237e; margin-right: 0.5rem;"></i>Highlighted Research</h2>
             </hgroup>
             <div class="slider">
                 <div class="slides">
@@ -345,16 +421,16 @@
 
         <section>
             <hgroup>
-                <h2 id="publications"><i class="fas fa-paper-plane" style="color: #4CAF50; margin-right: 0.5rem;"></i>Publications</h2>
+                <h2 id="publications"><i class="fas fa-paper-plane" style="color: #1a237e; margin-right: 0.5rem;"></i>Publications</h2>
             </hgroup>
 <p><strong><a href="https://scholar.google.com/citations?hl=zh-CN&user=ZXYNHYoAAAAJ&view_op=list_works&sortby=pubdate"><font color="#808080">Google Scholar Profile</font></a></strong></p>
         <strong>2025</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li><b>Mengji Zhang</b> et al. A self-adaptive and versatile tool for eliminating multiple undesirable variations from transcriptome. <i>Nature Biomedical Engineering</i> 2025 (First author, IF 26.8). <a href="https://example.com/link_to_publication_1" target="_blank">Read more</a></li>
         </ol>
     <!--</li>-->
         <strong>2024</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li><b>Mengji Zhang</b>* et al. A deep position-encoding model for predicting olfactory perception from molecular structures and electrostatics. <i>npj Systems Biology and Applications</i> 2024, 10, 76 (First author, IF 4.3). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>
             <li>Shuyi Jin#, <b>Mengji Zhang</b># et al. et al. A deep graph model for the signed interaction prediction in biological network. <i>preprint</i> (Co-first author). <a href="https://example.com/link_to_publication_2" target="_blank">Read more</a></li>            
             <li>Haiyang Su … <b>Mengji Zhang</b> et al. Fast Label‐Free Metabolic Profile Recognition Identifies Phenylketonuria and Subtypes. <i>Advanced Science</i> 2024, 2305701. <a href="https://example.com/link_to_publication_10" target="_blank">Read more</a></li>
@@ -363,14 +439,14 @@
     <!--</li>-->
     <!-- 2023 -->
         <strong>2023</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li>Weikang Shu#, <b>Mengji Zhang</b># et al. An Alloy Platform of Dual-Fingerprints for High-Performance Stroke Screening. <i>Advanced Functional Materials</i> 2023, 2210267. (Co-first author, IF 18.81). <a href="https://example.com/link_to_publication_4" target="_blank">Read more</a></li>
             <li>Jing Cao#, Yan Xiao#, <b>Mengji Zhang</b># et al. Deep learning of dual plasma fingerprints for high-performance infection classification. <i>Small</i> 2023, 202206349. (Co-first author, IF 15.15). <a href="https://example.com/link_to_publication_6" target="_blank">Read more</a></li>
             <li>Shunxiang Li … <b>Mengji Zhang</b> et al. Serum Metabolic Fingerprints Characterize Systemic Lupus Erythematosus. <i>Advanced Science</i> 2023, 2304610. <a href="https://example.com/link_to_publication_10" target="_blank">Read more</a></li>
         </ol>
     <!-- 2022 -->
         <strong>2022</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li>Lin Wang#, <b>Mengji Zhang</b>#, Xufeng Pan#, Mingna Zhao# et al. Integrative Serum Metabolic Fingerprints Based Multi-Modal Platforms for Lung Adenocarcinoma Early Detection and Pulmonary Nodule Classification. <i>Advanced Science</i> 2022, 2203786. (Co-first author, IF 16.80). <a href="https://example.com/link_to_publication_5" target="_blank">Read more</a></li>
             <li>Xia Yin#, Jing Yang#, <b>Mengji Zhang</b>#, Xinyao Wang# et al. Serum Metabolic Fingerprints on Bowl-Shaped Submicroreactor Chip for Chemotherapy Monitoring. <i>ACS Nano</i> 2022. (Co-first author, IF 15.88). <a href="https://example.com/link_to_publication_7" target="_blank">Read more</a></li>
             <li><b>Mengji Zhang</b># et al. Plasma metabolic signature of cardiovascular and cerebrovascular diseases from a large cohort study. <i>Journal of Shanghai Jiao Tong University (Medical Science)</i> 2022, 2, 259. <a href="https://example.com/link_to_publication_8" target="_blank">Read more</a></li>
@@ -378,19 +454,19 @@
         </ol>
     <!-- 2021 -->
         <strong>2021</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li><b>Mengji Zhang</b> et al. Ultra-Fast Label-Free Serum Metabolic Diagnosis of Coronary Heart Disease via a Deep Stabilizer. <i>Advanced Science</i> 2021, 8, 2101333. (First author, IF 16.80). <a href="https://example.com/link_to_publication_3" target="_blank">Read more</a></li>
             <li>Haiyang Su … <b>Mengji Zhang</b> et al. Plasmonic alloys reveal distinct metabolic phenotype of early gastric cancer. <i>Advanced Materials</i> 2021, 33, 2007978. <a href="https://example.com/link_to_publication_11" target="_blank">Read more</a></li>
         </ol>
     <!-- 2020 -->
         <strong>2020</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li>Jing Yang … <b>Mengji Zhang</b> et al. Urine Metabolic Fingerprints Encode Subtypes of Kidney Diseases. <i>Angewandte Chemie-International Edition</i> 2020, 59, 1703. <a href="https://example.com/link_to_publication_12" target="_blank">Read more</a></li>
             <li>Jing Cao … <b>Mengji Zhang</b> et al. Metabolic fingerprinting on synthetic alloys for medulloblastoma diagnosis and radio therapy evaluation. <i>Advanced Materials</i> 2020, 32, 2000906. <a href="https://example.com/link_to_publication_13" target="_blank">Read more</a></li>
         </ol>
     <!-- 2019 -->
         <strong>2019</strong>
-        <ol style="color: black">
+        <ol style="color: black" class="my-list">
             <li><b>Mengji Zhang</b> et al. Predicting Stock Trends Based on News Events. <i>Data Analysis and Knowledge Discovery</i> 2019, 3, 11. (First author). <a href="https://example.com/link_to_publication_9" target="_blank">Read more</a></li>
             <li>Xinyu Wang … <b>Mengji Zhang</b> et al. An Effective Optimization Algorithm for Application Mapping in Network-on-Chip Designs. <i>IEEE Transactions on Industrial Electronics</i> 2019, 67, 5798. (IF 8.14). <a href="https://example.com/link_to_publication_14" target="_blank">Read more</a></li>
         </ol>
@@ -399,7 +475,7 @@
 
                 <section id="gallery" aria-label="Lab Picture Gallery">
                 <hgroup>
-                <h2><i class="fas fa-image" style="color: #4CAF50; margin-right: 0.5rem;"></i>Lab Picture Gallery</h2>
+                <h2><i class="fas fa-image" style="color: #1a237e; margin-right: 0.5rem;"></i>Lab Picture Gallery</h2>
                 </hgroup>
                 <div class="slider">
                 <div class="slides">
@@ -429,7 +505,7 @@
                 </div>
                 </section>
               <section id="page_review" aria-label="Page Review">
-              <hgroup><h2><i class="fas fa-image" style="color: #4CAF50; margin-right: 0.5rem;"></i>Page Review</h2>
+              <hgroup><h2><i class="fas fa-image" style="color: #1a237e; margin-right: 0.5rem;"></i>Page Review</h2>
                 </hgroup>
               <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=6wjflFYcol1XCZLtx7bqIVLt0VRmlc1WDXbYhawuPyQ'></script>
               </section>
@@ -469,5 +545,7 @@
                 });
                 });
                 </script>
+                
+
                 </body>
                 </html>
