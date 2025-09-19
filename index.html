@@ -234,91 +234,10 @@
         // Call the function when the page loads
         window.onload = fetchVisitCount;
     </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-
-                <script>
-                    // Ensure the DOM is loaded before running the animation
-                    window.onload = function() {
-                        // Animate the <p> elements inside <section> first
-                        anime({
-                            targets: 'section p',
-                            opacity: [0, 1],
-                            easing: 'easeInOutQuad',
-                            duration: 300,
-                            delay: anime.stagger(300, {start: 0}) // Stagger delay
-                        });
-
-                        // Animate the <li> elements in the list with a slight delay to ensure it runs after <p> animation
-                        setTimeout(function() {
-                            const listItems = document.querySelectorAll('.my-list li');
-                            listItems.forEach((item, index) => {
-                                anime({
-                                    targets: item,
-                                    translateX: [100, 0],
-                                    opacity: [0, 1],
-                                    easing: 'easeOutExpo',
-                                    duration: 300,
-                                    delay: index * 300 // Stagger delay
-                                });
-                            });
-                        }, 0); // Delay the <li> animation by 500ms to let the <p> animations complete
-                    };
-                </script>
-                
-     <script>
-        const sliderImages = document.querySelectorAll('.slider .slide');
-        let currentIndex = 0;
-
-        function showSlide(index) {
-          sliderImages.forEach((img, i) => {
-            anime({
-              targets: img,
-              opacity: (i === index) ? 1 : 0,
-              duration: 1000,
-              easing: 'easeInOutQuad'
-            });
-          });
-        }
-
-        document.getElementById('next').addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % sliderImages.length;
-          showSlide(currentIndex);
-        });
-
-        document.getElementById('prev').addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + sliderImages.length) % sliderImages.length;
-          showSlide(currentIndex);
-        });
-    </script>
+            
     
-     <script>
-      const galleryImages = document.querySelectorAll('.slider .slide img');
-      galleryImages.forEach((image, index) => {
-        anime({
-          targets: image,
-          scale: [0, 1],
-          opacity: [0, 1],
-          easing: 'easeOutQuad',
-          duration: 1000,
-          delay: index * 500 // Stagger the animations
-        });
-      });
-    </script>
     
-     <script>
-      const links = document.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-          anime({
-            targets: link,
-            borderBottom: ['2px solid #607d8b', '2px solid #FF5733'],
-            duration: 400,
-            easing: 'easeInOutQuad'
-          });
-        });
-      });
-    </script>  
     
     
 </head>
