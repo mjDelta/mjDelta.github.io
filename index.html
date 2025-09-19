@@ -80,7 +80,7 @@
         }
         
         a {
-        	color: #1a237e;
+            color: #1a237e;
             font-size: 1.1rem;
         }
         
@@ -144,6 +144,96 @@
             display: grid;
             gap: 1rem;
         }
+
+/* --- NEW STYLES FOR LIST-LIKE RESEARCH ITEMS --- */
+.research-items-list {
+    list-style: none; /* Remove default list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.research-items-list li::before {
+    content: none;
+}
+
+.research-items-list li {
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: flex-start; /* Align items to the top */
+    padding: 1rem 0; /* Vertical padding for each item */
+    border-bottom: 1px solid #eee; /* Separator line between items */
+    margin-bottom: 0; /* Remove default list item margin */
+}
+
+.research-items-list li:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.research-items-list .item-thumbnail {
+    flex-shrink: 0; /* Prevent thumbnail from shrinking */
+    width: 150px; /* Fixed width for the thumbnail */
+    height: 150px; /* Fixed height for the thumbnail */
+    border-radius: 8px; /* Slightly rounded corners */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    margin-right: 1.25rem; /* Space between thumbnail and text */
+    background-color: #f8f8f8; /* Light background if image is small */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0; /* Subtle border for thumbnail */
+}
+
+.research-items-list .item-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensure image fits without cropping/stretching */
+    display: block;
+}
+
+.research-items-list .item-content {
+    flex-grow: 1; /* Allow content to take remaining space */
+}
+
+.research-items-list .item-content h4 {
+    font-size: 1.05rem; /* Slightly smaller title font */
+    color: #333;
+    margin: 0 0 0.25rem 0; /* Reduced margin below title */
+    padding: 0; /* Remove padding from h4 in this context */
+    line-height: 1.4;
+    text-align: left; /* Align text to the left */
+    border-top: none; /* Remove border-top as it's no longer a card title */
+}
+
+.research-items-list .item-content h4 a {
+    color: #1a237e; /* Ensure link color */
+    text-decoration: none; /* No underline by default */
+}
+
+.research-items-list .item-content h4 a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.research-items-list .item-content p {
+    color: #333;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem; /* Margin below description */
+}
+
+/* Reduce margin below the Highlighted Research title */
+#highlighted-research { margin-bottom: 1rem; }
+
+/* Ensure links in general are styled nicely */
+a {
+    color: #1a237e;
+    font-size: inherit; /* Inherit font size from parent, important for card links */
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    color: #00008b; /* Darker blue on hover */
+    text-decoration: underline;
+}
 
         /* Image slider styling */
         .slider {
@@ -303,49 +393,39 @@
             <hgroup>
                 <h2 id="highlighted-research"><i class="fas fa-certificate" style="color: #1a237e; margin-right: 0.5rem;"></i>Highlighted Research</h2>
             </hgroup>
-            <div class="slider">
-                <div class="slides">
-                    <div class="slide">
-                        <hgroup>
-                            <h4>Integrating the large-scale and heterogenous transcriptome datasets. <a href="https://www.nature.com/articles/s41551-025-01466-w" target="_blank">Learn more</a></h4>
-                        </hgroup>
-                        <figure>
-                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepadapter.png?raw=true" alt="Research Project 1">
-                            <figcaption><p style="color: black">
-                                Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data. The innovation of our approach lies in automatic learning of the corresponding denoising strategies to adapt to different situations.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="slide">
-                        <hgroup>
-                            <h4>Decoding the relationship between olfactory perception and molecular structure. <a href="https://www.nature.com/articles/s41540-024-00401-0" target="_blank">Learn more</a></h4>
-                        </hgroup>
-                        <figure>
-                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/molpeco.png?raw=true" alt="Research Project 2">
-                            <figcaption><p style="color: black">
-                                While visual and auditory information conveyed by wavelength of light and frequency of sound have been decoded, predicting olfactory information remains challenging due to the unknown and potentially discontinuous perceptual space of smells and odorants. Herein, we develop a deep learning model called Mol-PECO (Molecular Representation by Positional Encoding of Coulomb Matrix) to predict olfactory perception from molecular structures.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="slide">
-                        <hgroup>
-                            <h4>Stabilizing the metabolic profilings. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a></h4>
-                        </hgroup>
-                        <figure>
-                            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/deepstabilizer.png?raw=true" alt="Research Project 3">
-                            <figcaption><p style="color: black">
-                                Although mass spectrometry (MS) of metabolites has the potential to provide real-time monitoring of patient status for diagnostic purposes, the diagnostic application of MS is limited due to sample treatment and data quality/reproducibility. Here, the generation of a deep stabilizer for ultra-fast, label-free MS detection and the application of this method for serum metabolic diagnosis of coronary heart disease (CHD) are reported.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                </div>
-                <div class="slider-nav">
-                    <button id="prev">&laquo; Prev</button>
-                    <button id="next">Next &raquo;</button>
-                </div>
-            </div>
+
+<ul class="research-items-list">
+    <li>
+        <div class="item-thumbnail">
+            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/thumbnail-deepadapter.png?raw=true" alt="Research Project 1 Thumbnail">
+        </div>
+        <div class="item-content">
+            <h4>Integrating the large-scale and heterogenous transcriptome datasets. <a href="https://www.nature.com/articles/s41551-025-01466-w" target="_blank">Learn more</a></h4>
+            <p style="color: black">Accurate identification of true biological signals from diverse undesirable variations in large-scale transcriptomes is essential for downstream discoveries. Herein, we develop a universal deep neural network, called DeepAdapter, to eliminate various undesirable variations from transcriptomic data.</p>
+        </div>
+    </li>
+
+    <li>
+        <div class="item-thumbnail">
+            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/thumbnail-molpeco.png?raw=true" alt="Research Project 2 Thumbnail">
+        </div>
+        <div class="item-content">
+            <h4>Decoding the relationship between olfactory perception and molecular structure. <a href="https://www.nature.com/articles/s41540-024-00401-0" target="_blank">Learn more</a></h4>
+            <p style="color: black">While visual and auditory information have been decoded, predicting olfactory information remains challenging. Herein, we develop a deep learning model called Mol-PECO to predict olfactory perception from molecular structures.</p>
+        </div>
+    </li>
+
+    <li>
+        <div class="item-thumbnail">
+            <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/thumbnail-deepstabilizer.png?raw=true" alt="Research Project 3 Thumbnail">
+        </div>
+        <div class="item-content">
+            <h4>Stabilizing the metabolic profilings. <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/advs.202101333" target="_blank">Learn more</a></h4>
+            <p style="color: black">Although mass spectrometry (MS) of metabolites has the potential for real-time monitoring of patient status, its application is limited by data quality. Here, we report the generation of a deep stabilizer for ultra-fast, label-free MS detection.</p>
+        </div>
+    </li>
+</ul>
+
         </section>
 
         <section>
