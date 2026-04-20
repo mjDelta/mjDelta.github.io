@@ -111,8 +111,8 @@
         /* ── Hero / About ── */
         .hero {
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2.5rem;
+            grid-template-columns: 1fr;
+            gap: 0;
             align-items: start;
             padding: 3rem 0 2.5rem;
             border-bottom: 1px solid var(--border);
@@ -554,11 +554,6 @@
                 text-align: center;
                 gap: 1.5rem;
             }
-            .hero-photo {
-                width: 150px;
-                height: 150px;
-                margin: 0 auto;
-            }
             .hero-links { justify-content: center; }
             .hero-info h1 { font-size: 1.8rem; }
             .interests-grid { grid-template-columns: 1fr; }
@@ -625,17 +620,13 @@
 <main>
     <!-- ═══ Hero / About ═══ -->
     <section class="hero fade-up" id="about">
-        <!--<div class="hero-photo">-->
-            <!-- Replace src with your actual photo URL -->
-        <!--    <img src="https://github.com/mjDelta/mjDelta.github.io/blob/main/assets/images/yale.jpg?raw=true" alt="Mengji Zhang">-->
-        <!--</div>-->
         <div class="hero-info">
             <h1>Mengji Zhang</h1>
             <div class="hero-role">
-                Postdoc Fellow · <a href="https://lotfollahi.com/Lab" target="_blank">AI for Cell Engineering Lab</a> · <a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>
+                Postdoc Fellow · AI for Cell Engineering Lab · <a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>
             </div>
             <p class="hero-bio">
-                My research focuses on computational biology — developing machine learning methods for omics data integration, molecular modeling, and computational neuroscience. My long-term goal is to advance the understanding of biological systems through computational algorithms.
+                My research focuses on computational biology, with an emphasis on <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">generative models</strong> for bulk and spatial transcriptomics, and <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">foundation models</strong> for DNA sequences. I develop machine learning methods for omics data integration, molecular modeling, and computational neuroscience. My long-term goal is to advance the understanding of biological systems through computational algorithms.
             </p>
             <div class="hero-links">
                 <a href="mailto:mengji.zhang0809@gmail.com"><i class="fas fa-envelope"></i> Email</a>
@@ -687,19 +678,19 @@
         <h2 class="section-title"><i class="fas fa-microscope"></i> Research Interests</h2>
         <div class="interests-grid">
             <div class="interest-card">
-                <span class="interest-tag tag-omics">Metabolomics</span>
-                <h3>Computational Metabolomics</h3>
-                <p>Increasing profile reproducibility and decoding the mapping space between metabolites and measured profiles.</p>
-            </div>
-            <div class="interest-card">
                 <span class="interest-tag tag-omics">Transcriptomics</span>
                 <h3>Computational Transcriptomics</h3>
-                <p>Removing unwanted variations from batch effects, platform differences, purity, and other unknown factors.</p>
+                <p>Removing unwanted variations from batch effects, platform differences, purity, and other unknown factors. Developing generative models for spatial transcriptomics (Visium and Xenium).</p>
             </div>
             <div class="interest-card">
-                <span class="interest-tag tag-ml">Molecular Modeling</span>
-                <h3>Structure–Property Relationships</h3>
-                <p>Quantitative modeling of relationships between molecular structure and biological properties.</p>
+                <span class="interest-tag tag-ml">DNA Sequence</span>
+                <h3>DNA Sequence Models</h3>
+                <p>Joint modeling of cell types, microenvironment, and foundation DNA sequence models to decode regulatory logic at single-cell resolution.</p>
+            </div>
+            <div class="interest-card">
+                <span class="interest-tag tag-omics">Metabolomics &amp; Molecular Modeling</span>
+                <h3>Metabolomics &amp; Structure–Property Relationships</h3>
+                <p>Increasing profile reproducibility, decoding the mapping space between metabolites and measured profiles, and quantitative modeling of molecular structure–property relationships.</p>
             </div>
             <div class="interest-card">
                 <span class="interest-tag tag-neuro">Neuroscience</span>
