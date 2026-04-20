@@ -612,7 +612,7 @@
             <a href="#highlighted-research">Research</a>
             <a href="#publications">Publications</a>
             <a href="#gallery">Gallery</a>
-            <a href="#visitor-map">Visitors</a>
+            <a href="#visitor-map" id="nav-visitors" style="display:none;">Visitors</a>
         </div>
     </div>
 </nav>
@@ -938,18 +938,63 @@
             </figure>
         </div>
     </section>
-    <!-- ═══ Visitor Analytics ═══ -->
-    <section class="section" id="visitor-map">
+    <!-- ═══ Visitor Analytics (hidden until 10,000 visits) ═══ -->
+    <section class="section" id="visitor-map" style="display:none;">
         <h2 class="section-title"><i class="fas fa-globe"></i> Visitors</h2>
-        <div class="stats-map">
-            <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=6wjflFYcol1XCZLtx7bqIVLt0VRmlc1WDXbYhawuPyQ'></script>
-        </div>
+        <div class="stats-map" id="clustrmaps-visible"></div>
     </section>
+
+    <!-- ClustrMaps loader: off-screen so it always counts visits -->
+    <div id="clustrmaps-loader" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=6wjflFYcol1XCZLtx7bqIVLt0VRmlc1WDXbYhawuPyQ'></script>
+    </div>
 </main>
 
 <footer>
-    <p>&copy; 2025 Mengji Zhang. All rights reserved.</p>
+    <p>&copy; 2026 Mengji Zhang. All rights reserved.</p>
 </footer>
+
+<script>
+(function () {
+    var THRESHOLD = 10000;
+
+    function showVisitorSection() {
+        var loader = document.getElementById('clustrmaps-loader');
+        var target = document.getElementById('clustrmaps-visible');
+        var section = document.getElementById('visitor-map');
+        var navLink = document.getElementById('nav-visitors');
+        if (!loader || !target || !section) return;
+        // Move widget from hidden loader into visible section
+        while (loader.firstChild) target.appendChild(loader.firstChild);
+        section.style.display = '';
+        if (navLink) navLink.style.display = '';
+    }
+
+    // Strategy 1: Use Netlify serverless counter (primary)
+    fetch('/.netlify/functions/counter')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+            if (data && typeof data.count === 'number' && data.count >= THRESHOLD) {
+                showVisitorSection();
+            }
+        })
+        .catch(function () {
+            // Strategy 2: fallback — parse ClustrMaps widget text after it loads
+            setTimeout(function () {
+                var loader = document.getElementById('clustrmaps-loader');
+                if (!loader) return;
+                var text = loader.innerText || loader.textContent || '';
+                // ClustrMaps sometimes renders a text node with the count
+                var match = text.match(/([\d,]+)/);
+                if (match) {
+                    var count = parseInt(match[1].replace(/,/g, ''), 10);
+                    // alert(count)
+                    if (count >= THRESHOLD) showVisitorSection();
+                }
+            }, 4000);
+        });
+})();
+</script>
 
 </body>
 </html>
