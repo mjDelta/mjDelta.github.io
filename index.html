@@ -111,15 +111,15 @@
         /* ── Hero / About ── */
         .hero {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 0;
+            grid-template-columns: 180px 1fr;
+            gap: 2rem;
             align-items: start;
             padding: 3rem 0 2.5rem;
             border-bottom: 1px solid var(--border);
         }
         .hero-photo {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 16px;
             overflow: hidden;
             background: var(--surface-warm);
@@ -340,6 +340,57 @@
         }
         .software-links a:hover { opacity: 0.7; }
 
+        /* ── Cover Articles ── */
+        .covers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 180px));
+            gap: 1rem;
+        }
+        .cover-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+        .cover-card:hover {
+            border-color: var(--accent-glow);
+            box-shadow: 0 8px 24px rgba(45, 90, 123, 0.12);
+            transform: translateY(-3px);
+        }
+        .cover-card a { text-decoration: none; display: block; }
+        .cover-card-img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .cover-card-body {
+            padding: 0.6rem 0.75rem;
+        }
+        .cover-card-journal {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.2rem;
+        }
+        .cover-card-title {
+            font-family: var(--serif);
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: var(--ink);
+            margin-bottom: 0.2rem;
+        }
+        .cover-card-meta {
+            font-size: 0.68rem;
+            color: var(--ink-muted);
+        }
+
         /* ── Highlighted Research ── */
         .research-list { display: flex; flex-direction: column; gap: 1.25rem; }
         .research-item {
@@ -555,6 +606,7 @@
                 gap: 1.5rem;
             }
             .hero-links { justify-content: center; }
+            .hero-photo { width: 140px; height: 140px; margin: 0 auto; }
             .hero-info h1 { font-size: 1.8rem; }
             .interests-grid { grid-template-columns: 1fr; }
             .gallery-strip { grid-template-columns: 1fr; }
@@ -609,6 +661,7 @@
             <a href="#experience">Experience</a>
             <a href="#research-interests">Interests</a>
             <a href="#software">Software</a>
+            <a href="#cover-articles">Covers</a>
             <a href="#highlighted-research">Research</a>
             <a href="#publications">Publications</a>
             <a href="#gallery">Gallery</a>
@@ -620,10 +673,16 @@
 <main>
     <!-- ═══ Hero / About ═══ -->
     <section class="hero fade-up" id="about">
+        <div class="hero-photo">
+            <!-- Replace src with your actual photo URL -->
+            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:0.8rem;text-align:center;padding:1rem;">
+                <span><i class="fas fa-camera" style="font-size:1.5rem;display:block;margin-bottom:0.4rem;"></i>Photo</span>
+            </div>
+        </div>
         <div class="hero-info">
             <h1>Mengji Zhang</h1>
             <div class="hero-role">
-                Postdoc Fellow · AI for Cell Engineering Lab · <a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>
+                Senior Postdoc Fellow · <a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>
             </div>
             <p class="hero-bio">
                 My research focuses on computational biology, with an emphasis on <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">generative models</strong> for bulk and spatial transcriptomics, and <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">foundation models</strong> for DNA sequences. I develop machine learning methods for omics data integration, molecular modeling, and computational neuroscience. My long-term goal is to advance the understanding of biological systems through computational algorithms.
@@ -641,8 +700,12 @@
         <h2 class="section-title"><i class="fas fa-bolt"></i> News</h2>
         <div class="news-list">
             <div class="news-item">
+                <span class="news-date">Mar 2026</span>
+                <span class="news-text">Our paper was selected as the <a href="https://www.nature.com/natbiomedeng/volumes/10/issues/3" target="_blank">cover article</a> in <em>Nature Biomedical Engineering</em> Volume 10, Issue 3!</span>
+            </div>
+            <div class="news-item">
                 <span class="news-date">Sep 2025</span>
-                <span class="news-text">Joined the AI for Cell Engineering Lab led by <a href="https://scholar.google.com/citations?user=NXhouUcAAAAJ&hl=en" target="_blank">Dr. Mo Lotfollahi</a> at Wellcome Sanger Institute!</span>
+                <span class="news-text">Joined the lab led by <a href="https://scholar.google.com/citations?user=NXhouUcAAAAJ&hl=en" target="_blank">Dr. Mo Lotfollahi</a> at Wellcome Sanger Institute!</span>
             </div>
             <div class="news-item">
                 <span class="news-date">Jul 2025</span>
@@ -656,18 +719,18 @@
         <h2 class="section-title"><i class="fas fa-route"></i> Experience</h2>
         <div class="timeline">
             <div class="timeline-item current">
-                <div class="timeline-role">Postdoc Fellow</div>
-                <div class="timeline-place"><a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>, Cambridge · Advisor: <a href="https://scholar.google.com/citations?user=NXhouUcAAAAJ&hl=en" target="_blank">Dr. Mo Lotfollahi</a></div>
+                <div class="timeline-role">Senior Postdoc Fellow</div>
+                <div class="timeline-place"><a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>, Cambridge, UK · Advisor: <a href="https://scholar.google.com/citations?user=NXhouUcAAAAJ&hl=en" target="_blank">Dr. Mo Lotfollahi</a></div>
                 <div class="timeline-date">Sep 2025 — Present</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-role">Postdoc Associate</div>
-                <div class="timeline-place"><a href="https://www.yale.edu/" target="_blank">Yale University</a> · Advisor: <a href="https://scholar.google.com/citations?user=RuIP34YAAAAJ&hl=en" target="_blank">Dr. Hyojung Seo</a></div>
+                <div class="timeline-place"><a href="https://www.yale.edu/" target="_blank">Yale University</a>, New Haven, US · Advisor: <a href="https://scholar.google.com/citations?user=RuIP34YAAAAJ&hl=en" target="_blank">Dr. Hyojung Seo</a></div>
                 <div class="timeline-date">Jun 2024 — Aug 2025</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-role">Ph.D. in Biomedical Engineering</div>
-                <div class="timeline-place"><a href="https://www.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a> · Advisor: <a href="https://scholar.google.com/citations?user=6FXooBkAAAAJ&hl=zh-CN" target="_blank">Dr. Kun Qian</a></div>
+                <div class="timeline-place"><a href="https://www.sjtu.edu.cn/" target="_blank">Shanghai Jiao Tong University</a>, Shanghai, China · Advisor: <a href="https://scholar.google.com/citations?user=6FXooBkAAAAJ&hl=zh-CN" target="_blank">Dr. Kun Qian</a></div>
                 <div class="timeline-date">2018 — Jun 2023</div>
             </div>
         </div>
@@ -711,6 +774,35 @@
                 <a href="https://github.com/mjDelta/DeepAdapter" target="_blank"><i class="fab fa-github"></i> Source Code</a>
                 <a href="https://pypi.org/project/deepadapter/" target="_blank"><i class="fas fa-box"></i> PyPI</a>
             </div>
+        </div>
+    </section>
+
+    <!-- ═══ Cover Articles ═══ -->
+    <section class="section" id="cover-articles">
+        <h2 class="section-title"><i class="fas fa-book-open"></i> Cover Articles</h2>
+        <div class="covers-grid">
+            <div class="cover-card">
+                <a href="https://www.nature.com/natbiomedeng/volumes/10/issues/3" target="_blank">
+                    <img class="cover-card-img" src="https://media.springernature.com/w316/springer-static/cover-hires/journal/41551/10/3" alt="Nature Biomedical Engineering Vol.10 Issue 3 Cover">
+                    <div class="cover-card-body">
+                        <div class="cover-card-journal">Nature Biomedical Engineering</div>
+                        <div class="cover-card-title">A self-adaptive and versatile tool for eliminating multiple undesirable variations from transcriptome</div>
+                        <div class="cover-card-meta">Volume 10, Issue 3 · March 2026</div>
+                    </div>
+                </a>
+            </div>
+            <!-- Add more cover cards here as needed:
+            <div class="cover-card">
+                <a href="ISSUE_URL" target="_blank">
+                    <img class="cover-card-img" src="COVER_IMAGE_URL" alt="Journal Cover">
+                    <div class="cover-card-body">
+                        <div class="cover-card-journal">Journal Name</div>
+                        <div class="cover-card-title">Paper Title</div>
+                        <div class="cover-card-meta">Volume X, Issue Y · Month Year</div>
+                    </div>
+                </a>
+            </div>
+            -->
         </div>
     </section>
 
@@ -765,8 +857,8 @@
             <div class="pub-list">
                 <div class="pub-item">
                     <span class="pub-authors"><b>Mengji Zhang</b> et al.</span>
-                    A self-adaptive and versatile tool for eliminating multiple undesirable variations from transcriptome.
-                    <span class="pub-journal">Nature Biomedical Engineering</span> 2025, 1-14.
+                    A self-adaptive and versatile tool for eliminating multiple undesirable variations from large-scale transcriptomes.
+                    <span class="pub-journal">Nature Biomedical Engineering</span> 10, 413–426 (2025).
                     <span class="pub-badge badge-first">First Author</span>
                     <a class="pub-link" href="https://www.nature.com/articles/s41551-025-01466-w" target="_blank">Paper →</a>
                 </div>
@@ -988,7 +1080,6 @@
                 var match = text.match(/([\d,]+)/);
                 if (match) {
                     var count = parseInt(match[1].replace(/,/g, ''), 10);
-                    // alert(count)
                     if (count >= THRESHOLD) showVisitorSection();
                 }
             }, 4000);
