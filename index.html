@@ -184,6 +184,88 @@
         }
         .hero-links a i { font-size: 0.85rem; }
 
+/* ── Hero Hiring Callout ── */
+        .hero-hiring {
+            margin: 1rem 0 1.1rem;
+            padding: 0.9rem 1.1rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 3px solid #b45309;
+            border-radius: 8px;
+            font-size: 0.87rem;
+            line-height: 1.6;
+            color: #5a3a0a;
+            box-shadow: 0 1px 3px rgba(180, 83, 9, 0.08);
+        }
+        .hero-hiring-main {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        .hero-hiring-badge {
+            flex-shrink: 0;
+            font-size: 0.66rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #b45309;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            margin-top: 0.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .hero-hiring-text { flex: 1; }
+        .hero-hiring a {
+            color: #92400e;
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: rgba(180, 83, 9, 0.4);
+            text-underline-offset: 2px;
+        }
+        .hero-hiring a:hover { text-decoration-color: #92400e; }
+        .hero-hiring strong { color: #5a3a0a; font-weight: 600; }
+        .hero-hiring-topics {
+            margin-top: 0.75rem;
+            padding-top: 0.7rem;
+            border-top: 1px dashed rgba(180, 83, 9, 0.35);
+        }
+        .hero-hiring-topics-label {
+            font-size: 0.66rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+        .hero-hiring-topic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        .hero-hiring-topic-list li {
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #5a3a0a;
+            padding-left: 1.1rem;
+            position: relative;
+        }
+        .hero-hiring-topic-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #b45309;
+            font-weight: 700;
+        }
+        .hero-hiring-topic-list li b { color: #5a3a0a; font-weight: 600; }
+        .hero-hiring-topic-list li span.subtopic { color: #7a5318; font-size: 0.78rem; }
+        
         /* ── Section common ── */
         .section {
             padding: 2.5rem 0 0;
@@ -239,6 +321,20 @@
         }
         .news-text a:hover { text-decoration: underline; }
 
+        .news-pin {
+                    display: inline-block;
+                    font-size: 0.62rem;
+                    font-weight: 700;
+                    padding: 0.1rem 0.45rem;
+                    border-radius: 4px;
+                    margin-right: 0.4rem;
+                    vertical-align: middle;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                    color: #b45309;
+                    background: #fef3c7;
+                }
+        
         /* ── Research Interests ── */
         .interests-grid {
             display: grid;
@@ -679,11 +775,28 @@
         <div class="hero-info">
             <h1>Mengji Zhang</h1>
             <div class="hero-role">
+                Incoming Assistant Professor · <a href="https://bme.sustech.edu.cn/en/" target="_blank">SUSTech BME</a><br>
                 Senior Postdoc Fellow · <a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>
             </div>
             <p class="hero-bio">
                 My research focuses on computational biology, with an emphasis on <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">generative models</strong> for bulk and spatial transcriptomics, and <strong style="display:inline; font-size:inherit; color:var(--accent-deep);">foundation models</strong> for DNA sequences. I develop machine learning methods for omics data integration, molecular modeling, and computational neuroscience. My long-term goal is to advance the understanding of biological systems through computational algorithms.
             </p>
+            <div class="hero-hiring">
+                <div class="hero-hiring-main">
+                    <span class="hero-hiring-badge"><i class="fas fa-bullhorn"></i> Hiring</span>
+                    <span class="hero-hiring-text">Joining <a href="https://bme.sustech.edu.cn/en/" target="_blank">SUSTech BME</a> as a Tenure-Track Assistant Professor in Fall 2026. Recruiting <strong>master&rsquo;s students, PhD students (2027), postdocs, research assistants (RAs), visiting scholars, and visiting undergraduates</strong>. Please email me if you would like to join the lab.</span>
+                </div>
+                <div class="hero-hiring-topics">
+                    <div class="hero-hiring-topics-label">Research directions</div>
+                    <ul class="hero-hiring-topic-list">
+                        <li>AI4Biology / AI4LifeScience</li>
+                        <li>Generative models for omics <span class="subtopic">— spatial transcriptomics, genomics, transcriptomics, metabolomics</span></li>
+                        <li>DNA foundation models &amp; variant effect prediction</li>
+                        <li>Molecular modeling</li>
+                        <li>Computational neuroscience <span class="subtopic">— particularly Ephys</span></li>
+                    </ul>
+                </div>
+            </div>
             <div class="hero-links">
                 <span class="hero-links-email" style="display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; font-weight:500; color:var(--ink-light); padding:0.35rem 0.75rem; border:1px solid var(--border); border-radius:20px; user-select:all; cursor:text;"><i class="fas fa-envelope" style="font-size:0.85rem;"></i> mengji.zhang0809@gmail.com</span>
                 <a href="https://scholar.google.com/citations?hl=zh-CN&user=ZXYNHYoAAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
@@ -696,6 +809,10 @@
     <section class="section fade-up delay-1" id="news">
         <h2 class="section-title"><i class="fas fa-bolt"></i> News</h2>
         <div class="news-list">
+    <div class="news-item">
+                <span class="news-date">May 2026</span>
+                <span class="news-text"><span class="news-pin">Hiring</span>Excited to be joining the <a href="https://bme.sustech.edu.cn/en/" target="_blank">Department of Biomedical Engineering</a> at Southern University of Science and Technology (SUSTech) as a Tenure-Track Assistant Professor in Fall 2026! I am actively recruiting for the new lab — if you are interested, please feel free to reach out via email.</span>
+            </div>
             <div class="news-item">
                 <span class="news-date">Mar 2026</span>
                 <span class="news-text">Our paper was selected as the <a href="https://www.nature.com/natbiomedeng/volumes/10/issues/3" target="_blank">cover article</a> in <em>Nature Biomedical Engineering</em> Volume 10, Issue 3!</span>
@@ -715,6 +832,11 @@
     <section class="section fade-up delay-2" id="experience">
         <h2 class="section-title"><i class="fas fa-route"></i> Experience</h2>
         <div class="timeline">
+            <div class="timeline-item current">
+                <div class="timeline-role">Incoming Tenure-Track Assistant Professor</div>
+                <div class="timeline-place"><a href="https://bme.sustech.edu.cn/en/" target="_blank">Department of Biomedical Engineering, SUSTech</a>, Shenzhen, China</div>
+                <div class="timeline-date">Fall 2026 — </div>
+            </div>
             <div class="timeline-item current">
                 <div class="timeline-role">Senior Postdoc Fellow</div>
                 <div class="timeline-place"><a href="https://www.sanger.ac.uk/" target="_blank">Wellcome Sanger Institute</a>, Cambridge, UK · Advisor: <a href="https://scholar.google.com/citations?user=NXhouUcAAAAJ&hl=en" target="_blank">Dr. Mo Lotfollahi</a></div>
