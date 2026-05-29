@@ -682,7 +682,49 @@
             font-size: 0.75rem;
             color: var(--ink-muted);
         }
-
+/* ── Visitor Stats Card (GoatCounter) ── */
+        .visitor-stats-card {
+            background: linear-gradient(135deg, var(--surface-card) 0%, var(--surface-warm) 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .visitor-count-number {
+            font-family: var(--serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-deep);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+        .visitor-count-label {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.4rem;
+        }
+        .visitor-count-footer {
+            margin-top: 1.2rem;
+            padding-top: 0.9rem;
+            border-top: 1px dashed var(--border);
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            width: 100%;
+        }
+        .visitor-count-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .visitor-count-footer a:hover { text-decoration: underline; }
+        
         /* ── Footer ── */
         footer {
             border-top: 1px solid var(--border);
@@ -1149,16 +1191,21 @@
             </figure>
         </div>
     </section>
-    <!-- ═══ Visitor Analytics (hidden until 10,000 visits) ═══ -->
+<!-- ═══ Visitor Analytics (hidden until 10,000 visits) ═══ -->
     <section class="section" id="visitor-map" style="display:none;">
         <h2 class="section-title"><i class="fas fa-globe"></i> Visitors</h2>
-        <div class="stats-map" id="clustrmaps-visible"></div>
+        <div class="visitor-stats-card">
+            <div class="visitor-count-number" id="gc-count">—</div>
+            <div class="visitor-count-label">Total visitors</div>
+            <div class="visitor-count-footer">
+                Privacy-friendly analytics by <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a> · no cookies, no personal data tracked.
+            </div>
+        </div>
     </section>
 
-    <!-- ClustrMaps loader: off-screen so it always counts visits -->
-    <div id="clustrmaps-loader" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
-        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=tt&d=6wjflFYcol1XCZLtx7bqIVLt0VRmlc1WDXbYhawuPyQ'></script>
-    </div>
+    <!-- GoatCounter tracking (always runs, counts every page view) -->
+    <script data-goatcounter="https://mengjizhang.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </main>
 
 <footer>
@@ -1168,40 +1215,29 @@
 <script>
 (function () {
     var THRESHOLD = 10000;
+    var GC_CODE = 'mengjizhang';  // <-- 替换为你的 GoatCounter code
 
-    function showVisitorSection() {
-        var loader = document.getElementById('clustrmaps-loader');
-        var target = document.getElementById('clustrmaps-visible');
-        var section = document.getElementById('visitor-map');
-        var navLink = document.getElementById('nav-visitors');
-        if (!loader || !target || !section) return;
-        // Move widget from hidden loader into visible section
-        while (loader.firstChild) target.appendChild(loader.firstChild);
-        section.style.display = '';
-        if (navLink) navLink.style.display = '';
-    }
-
-    // Strategy 1: Use Netlify serverless counter (primary)
-    fetch('/.netlify/functions/counter')
+    fetch('https://' + GC_CODE + '.goatcounter.com/counter/TOTAL.json')
         .then(function (r) { return r.json(); })
         .then(function (data) {
-            if (data && typeof data.count === 'number' && data.count >= THRESHOLD) {
-                showVisitorSection();
+            if (!data || data.count === undefined) return;
+            // GoatCounter returns count as a formatted string like "12,345"
+            var count = parseInt(String(data.count).replace(/[^\d]/g, ''), 10);
+            if (!isFinite(count)) return;
+
+            // Always populate the number (so you can preview by manually unhiding the section)
+            document.getElementById('gc-count').textContent = count.toLocaleString();
+
+            // Only reveal the section + nav link once threshold is hit
+            if (count >= THRESHOLD) {
+                document.getElementById('visitor-map').style.display = '';
+                var navLink = document.getElementById('nav-visitors');
+                if (navLink) navLink.style.display = '';
             }
         })
-        .catch(function () {
-            // Strategy 2: fallback — parse ClustrMaps widget text after it loads
-            setTimeout(function () {
-                var loader = document.getElementById('clustrmaps-loader');
-                if (!loader) return;
-                var text = loader.innerText || loader.textContent || '';
-                // ClustrMaps sometimes renders a text node with the count
-                var match = text.match(/([\d,]+)/);
-                if (match) {
-                    var count = parseInt(match[1].replace(/,/g, ''), 10);
-                    if (count >= THRESHOLD) showVisitorSection();
-                }
-            }, 4000);
+        .catch(function (err) {
+            // Silent failure: nothing shows up, which is the same as < threshold
+            console.warn('GoatCounter visitor count unavailable:', err);
         });
 })();
 </script>
